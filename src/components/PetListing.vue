@@ -3,7 +3,35 @@ import {defineProps} from 'vue';
 import {onMounted, ref} from 'vue';
 
 const pets = ref ([]);
-
+const pet_pictures = [
+  "../petpictures/fish.jpg",
+  "petpictures/gold.jpg",
+  "petpictures/king.jpg",
+  "petpictures/sam.jpg"
+];
+const pet_names = [
+  "Fsssh",
+  "Goldy",
+  "King",
+  "Zarzar"
+]
+function add_picture() {
+  const animalDivs = document.querySelectorAll(".animals");
+const show_pets = false
+  animalDivs.forEach((div, index) => {
+      const imgPath = pet_pictures[index % pet_pictures.length]; // loop if more divs than images
+      div.style.backgroundImage = `url(${imgPath})`;
+      div.style.backgroundSize = "cover";
+      div.style.backgroundPosition = "center";
+      div.textContent = pet_names[index]
+      div.style.fontFamily = 'square'
+      div.style.color = "white"
+      div.style.fontSize = '2rem'
+    });
+  }
+  onMounted(() => {
+  add_picture();
+});
 
 onMounted(async () =>{
     try{
@@ -146,8 +174,9 @@ h1, #paws {
   background-color: white;
   height: 200px;
   width: 300px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {

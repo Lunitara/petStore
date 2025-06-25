@@ -3,7 +3,7 @@ import {defineProps} from 'vue';
 import {onMounted, ref} from 'vue';
 
 const pets = ref ([]);
-
+let activePage = ref('AdoptionApplication');
 
 onMounted(async () =>{
     try{
@@ -30,7 +30,6 @@ const props = defineProps({
 <template>
     <div class = "container">
         <h2>{{ props.title }}</h2>
-
     </div>
-    
+
 </template>

@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import { onMounted } from "vue";
 import AdoptionApplication from './components/AdoptionApplication.vue';
 import PetListing from './components/PetListing.vue';
 
@@ -8,14 +9,7 @@ function navigateTo(page) {
   activePage.value = page;
   console.log(page);
 }
-const pet_pictures = ["petpictures\fish.jpg", "petpictures\gold.jpg", "petpictures\king.jpg", "petpictures\sam.jpg"]
 
-function add_picture () {
-  for (pic in pet_pictures) {
-    animals.style.backgroundImage = pic
-  }
-}
-const show_pets = false
 </script>
 
 <template>
@@ -40,7 +34,7 @@ const show_pets = false
     </div>
     <button id="see_listing"
     @click="navigateTo('PetListing')">See All Listings</button>
-    
+    <AdoptionApplication  v-if="activePage === 'AdoptionApplication'"/>
     <PetListing  v-if="activePage === 'PetListing'"/>
   </div>
 </template>
