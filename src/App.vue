@@ -7,9 +7,14 @@ let activePage = ref('home');
 function navigateTo(page) {
   activePage.value = page;
   console.log(page);
-  show_pets = true
 }
+const pet_pictures = ["petpictures\fish.jpg", "petpictures\gold.jpg", "petpictures\king.jpg", "petpictures\sam.jpg"]
 
+function add_picture () {
+  for (pic in pet_pictures) {
+    animals.style.backgroundImage = pic
+  }
+}
 const show_pets = false
 </script>
 
@@ -17,7 +22,8 @@ const show_pets = false
   <div id="top_bar">
     <h1>Sebastian Adoptions</h1>
     <nav>
-      <p id="home">HOME</p>
+      <p id="home_word"
+      @click="navigateTo('home')">HOME</p>
     </nav>
   </div>
 
@@ -35,7 +41,7 @@ const show_pets = false
     <button id="see_listing"
     @click="navigateTo('PetListing')">See All Listings</button>
     
-    <PetListing v-if="true"/>
+    <PetListing  v-if="activePage === 'PetListing'"/>
   </div>
 </template>
 
@@ -87,7 +93,7 @@ h1, #paws {
   font-size: 1.5rem;
 }
 
-#home {
+#home_word {
   position: absolute;
   left: 8px;
   top: 0px;

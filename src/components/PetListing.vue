@@ -34,12 +34,12 @@ const props = defineProps({
         <div id="flex_row">
             <div class="animals"></div>
             <div class="animals"></div>
-            <div class="animals"></div>
+
         </div>
         <div id="flex_row">
             <div class="animals"></div>
             <div class="animals"></div>
-            <div class="animals"></div>
+
         </div>
         </div>
     </div>
